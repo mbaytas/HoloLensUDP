@@ -1,10 +1,12 @@
 # HoloLensUDP
 
-Unity prefabs for UDP communication between Microsoft HoloLens and arbitrary machines
+Unity prefabs for UDP communication between Microsoft HoloLens and arbitrary machines.
 
 Derived from [this post by DrNeurosurg on the Windows Mixed Reality Developer Forum](https://forums.hololens.com/discussion/7980/udp-communication-solved).
 
 Requires [HoloToolkit-Unity](https://github.com/Microsoft/HoloToolkit-Unity), because I can't live without its Build Window.
+
+This is HoloLens assets only. You're going to need to have someone else to talk to.
 
 ## Instructions
 
@@ -26,10 +28,10 @@ Requires [HoloToolkit-Unity](https://github.com/Microsoft/HoloToolkit-Unity), be
 
 4) Observe that UDPCommunication_Listener and UDPCommunication_Sender are instances of the same UDPCommunication prefab.
 
-5) Read and try to make sense of the previous section.
+5) Read and try to make sense of the previous section. If you fail, Google the following: Unity tutorials, UDP communication, HoloLens tutorials.
 
 ## Tips
 
 - I found it preferable to set up different listeners and senders for different concerns/streams, rather than having only one of each to handle everything.
 
-This project is derived from my work with [Qualisys AB](http://www.qualisys.com/), the [HAPPERN research group at Koç University](https://happern.ku.edu.tr/), and the [t2i Interaction Laboratory at Chalmers University of Technology](http://t2i.se/).
+This is derived from my work with [Qualisys AB](http://www.qualisys.com/), the [HAPPERN research group at Koç University](https://happern.ku.edu.tr/), and the [t2i Interaction Laboratory at Chalmers University of Technology](http://t2i.se/).
