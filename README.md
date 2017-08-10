@@ -6,7 +6,7 @@ Derived from [this post by DrNeurosurg on the Windows Mixed Reality Developer Fo
 
 Requires [HoloToolkit-Unity](https://github.com/Microsoft/HoloToolkit-Unity) (v1.5.7), because I can't live without its Build Window.
 
-This is HoloLens assets only. You're going to need to have someone else to talk to.
+This is only Unity assets for one HoloLens. You're going to need to have someone else to talk to.
 
 ## Instructions
 
