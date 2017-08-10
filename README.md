@@ -18,7 +18,7 @@ This is HoloLens assets only. You're going to need to have someone else to talk 
 
 ### ...for N00bs
 
-1) Clone/download and open up the project.
+1) Clone/download and import.
 
 2) Import [HoloToolkit-Unity](https://github.com/Microsoft/HoloToolkit-Unity). If this is the first time you have done this, feel enlightened.
 
