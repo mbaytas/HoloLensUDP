@@ -4,7 +4,7 @@ Unity prefabs for UDP communication between Microsoft HoloLens and arbitrary mac
 
 Derived from [this post by DrNeurosurg on the Windows Mixed Reality Developer Forum](https://forums.hololens.com/discussion/7980/udp-communication-solved).
 
-Requires [HoloToolkit-Unity](https://github.com/Microsoft/HoloToolkit-Unity), because I can't live without its Build Window.
+Requires [HoloToolkit-Unity](https://github.com/Microsoft/HoloToolkit-Unity) (v1.5.7), because I can't live without its Build Window.
 
 This is HoloLens assets only. You're going to need to have someone else to talk to.
 
