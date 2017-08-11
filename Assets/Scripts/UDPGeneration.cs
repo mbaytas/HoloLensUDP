@@ -18,11 +18,12 @@ public class UDPGeneration : MonoBehaviour {
 	void Update () {
 		if (DataString != null) {
 			// UTF-8 is real
-			var bytes = System.Text.Encoding.UTF8.GetBytes(DataString);
+			var dataBytes = System.Text.Encoding.UTF8.GetBytes(DataString);
+			UDPCommunication comm = UDPCommGameObject.GetComponent<UDPCommunication> ();
 
 			// #if is required because SendUDPMessage() is async
 			#if !UNITY_EDITOR
-			comm.SendUDPMessage(incomingIP, comm.externalPort, data);
+			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytes);
 			#endif
 		}
 	}

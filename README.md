@@ -1,5 +1,7 @@
 # HoloLensUDP
 
+[![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
+
 Unity prefabs and scripts for UDP communication between Microsoft HoloLens and arbitrary machines.
 
 - **Prefabs**
@@ -17,7 +19,7 @@ Derived from [this post by DrNeurosurg on the Windows Mixed Reality Developer Fo
 
 This is only Unity assets for one HoloLens. You're going to need to have someone else to talk to. Check out [QualisysUDP](https://github.com/mbaytas/QualisysUDP) for talking to a motion capture system, and [MyoUDP](https://github.com/mbaytas/MyoUDP) for talking to Myo armbands.
 
-**These assets do not work inside the Unity editor / HoloLens emulator. They must be deployed on HoloLens device to function.** This is because the HoloLens uses the asynchronous programming features in UWP, which Unity currently does not support.
+**These assets do not work inside the Unity editor / HoloLens emulator. They must be deployed on HoloLens device to function.** This is because the HoloLens uses the asynchronous programming features in UWP, which Unity currently does not support, so a lot of functionality comes inside '#if !UNITY_EDITOR' blocks.
 
 ## Dependencies
 
@@ -27,7 +29,7 @@ Requires [HoloToolkit-Unity](https://github.com/Microsoft/HoloToolkit-Unity) (v1
 
 ### ...for People Who Know What They Are Doing
 
-1) Drop in the UDPCommunication prefab. This can be configured as a sender, listener, or both. I found it preferable to have different instances and set different port numbers for sending and listening.
+1) Drop in the UDPCommunication prefab. This can be configured as a sender, listener, or both. (I found it preferable to have different instances and set different port numbers for sending and listening.) Listeners and senders will both need an Internal Port number, an External IP, and an External Port, as well as the Send Ping property set to true. Only the listener requires a UDP Event.
 
 2) Drop in a UDPResponder or UDPGenerator prefab. The UDPResponder needs to be hooked up using the UDPEvent property on the UDPCommunication prefab; then you can modify the UDPResponse script to change behavior. The UDPGenerator has a UDPCommGameObject property to hook it up, and a string property you can set; or you could modify its code.
 
@@ -43,11 +45,15 @@ Requires [HoloToolkit-Unity](https://github.com/Microsoft/HoloToolkit-Unity) (v1
 
 4) Observe that UDPCommunication_Listener and UDPCommunication_Sender are instances of the same UDPCommunication prefab.
 
-5) Read and try to make sense of the previous section. If you fail, Google the following: Unity tutorials, UDP communication, HoloLens tutorials.
+5) Read and try to make sense of the previous section. If you fail, Google the following: Unity tutorials, UDP communication.
+
+6) Deploy on device. It will not work inside the Unity editor / HoloLens emulator.
 
 ## Notes
 
 - I found it preferable to set up different listeners and senders for different concerns/streams, rather than having only one of each to handle everything.
+
+- You might get non-specific errors when building for the device. These sometimes happen randomly. Just try again.
 
 ---
 

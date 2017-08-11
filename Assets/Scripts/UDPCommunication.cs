@@ -4,11 +4,9 @@ using System.Text;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.Events;
 
 using HoloToolkit.Unity;
-
 
 #if !UNITY_EDITOR
 using Windows.Networking.Sockets;
@@ -28,13 +26,13 @@ public class UDPCommunication : MonoBehaviour
 	public string internalPort = "11000";
 
 	[Tooltip("IP address to send to")]
-	public string externalIP = "192.168.17.110";
+	public string externalIP = "192.168.1.130";
 
 	[Tooltip("Port to send to")]
 	public string externalPort = "11000";
 
 	[Tooltip("Send a message on startup")]
-	public bool sendPingAtStart = false;
+	public bool sendPingAtStart = true;
 
 	[Tooltip("Contents of the startup message")]
 	public string PingMessage = "Let there be UDP.";
@@ -50,10 +48,10 @@ public class UDPCommunication : MonoBehaviour
 	//we've got a message (data[]) from (host) in case of not assigned an event
 	void UDPMessageReceived(string host, string port, byte[] data)
 	{
-	Debug.Log("UDP from " + host + " on port " + port + ", " + data.Length.ToString() + " bytes ");
+	Debug.Log("UDP message from " + host + " on port " + port + ", " + data.Length.ToString() + " bytes ");
 	}
 
-	//Send an UDP-Packet
+	//Send a UDP-Packet
 	public async void SendUDPMessage(string HostIP, string HostPort, byte[] data)
 	{
 	await _SendUDPMessage(HostIP, HostPort, data);
@@ -67,7 +65,7 @@ public class UDPCommunication : MonoBehaviour
 	{
 	if (udpEvent == null)
 	{
-	udpEvent = new UnityEvent<string, string, byte[]>;
+	udpEvent = new UDPMessageEvent();
 	udpEvent.AddListener(UDPMessageReceived);
 	}
 
@@ -97,8 +95,13 @@ public class UDPCommunication : MonoBehaviour
 	return;
 	}
 
-	if(sendPingAtStart)
+	if (externalIP != null && externalPort != null && sendPingAtStart)
+	{
+	if (PingMessage == null){
+	PingMessage = "";
+	}
 	SendUDPMessage(externalIP, externalPort, Encoding.UTF8.GetBytes(PingMessage));
+	}
 
 	}
 
