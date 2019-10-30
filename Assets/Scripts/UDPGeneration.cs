@@ -22,9 +22,8 @@ public class UDPGeneration : MonoBehaviour {
 			UDPCommunication comm = UDPCommGameObject.GetComponent<UDPCommunication> ();
 
 			// #if is required because SendUDPMessage() is async
-			#if !UNITY_EDITOR
+			//UPDATE: #if is handled in UDPCommunication.cs
 			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytes);
-			#endif
 		}
 	}
 }
